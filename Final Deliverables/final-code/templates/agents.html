@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+<title>
+    Dashboard
+</title>
+
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<br>
+
+<div class="fordashboardtop">
+    <div class="fordashboardtopelements1">
+        <a href="/admin"><button class="forbutton"> &nbsp;←&nbsp; </button></a>
+        &nbsp; Welcome Admin,
+    </div>
+
+    <div class="fordashboardtopelements2">
+        <a href="/signout"><button class="forbutton">Sign out</button></a>
+    </div>
+
+</div>
+<br>
+<div class="outerofdashdetails">
+
+    <div class="fordashboarddetails">
+        <br>
+        <!-- table of customers complaints -->
+        <table class="fortable">
+            <thead>
+                <th class="pad">Name</th>
+                <th>Email</th>
+                <th>More Details</th>
+            </thead>
+            <tbody>
+                {% for i in agents %}
+                <tr>
+                    <td class="pad">
+                        {{ i['NAME'] }}
+                    </td>
+
+                    <td>
+                        {{ i['EMAIL'] }}
+                    </td>
+                    <td>
+                        <div id="popup1/{{ i['USERNAME'] }}" class="overlay">
+                            <div class="popup">
+                                <div style="text-align: left;">
+                                    <h2>Details of {{ i['NAME'] }}</h2>
+                                    Username: {{ i['USERNAME'] }} <br>
+                                    Phone No.: {{ i['PHN'] }} <br>
+                                    Total: {{ i['COMPLAINTS_COUNT'] }} <br>
+                                    Solved: {{ i['SOLVED_COUNT'] }} <br>
+                                    Status: {% if i['COMPLAINTS_COUNT'] - i['SOLVED_COUNT'] == 0 %}
+                                    Available
+                                    {% elif i['STATUS'] == 0 %}
+                                    not Available
+                                    {% else %}
+                                    Assigned to job
+                                    {% endif %} <br>
+                                </div>
+                                <a class="close" href="#">×</a>
+                                <div class="content">
+                                    Thank to pop me out of that button, but now i'm done so you can close this window.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <a class="button" href="#popup1/{{ i['USERNAME'] }}">View</a>
+                        </div>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        <br>
+        <center>
+            {% if msg|length > 3 %}
+            <b>{{ msg }}</b> <br>
+
+            {% endif %}
+
+
+            <div class="fordashboarddetails">
+
+                <button type="button" class="collapsible">Add new agent ➕</button>
+                <div class="content">
+                    <br>
+                    <form action="/addnewagent" method="post">
+                        <div class="forform">
+                            <div class="textinformleft">
+                                Username
+                            </div>
+                            <div class="textinformright">
+                                <input class="textinformright" maxlength=30 type="name" name="username">
+                            </div>
+                        </div>
+                        <div class="forform">
+                            <div class="textinformleft">
+                                Name
+                            </div>
+                            <div class="textinformright">
+                                <input class="textinformright" maxlength=30 type="name" name="name">
+                            </div>
+                        </div>
+                        <div class="forform">
+                            <div class="textinformleft">
+                                Email
+                            </div>
+                            <div class="textinformright">
+                                <input class="textinformright" maxlength=40 type="name" name="email">
+                            </div>
+                        </div>
+                        <div class="forform">
+                            <div class="textinformleft">
+                                Phone
+                            </div>
+                            <div class="textinformright">
+                                <input class="textinformright" maxlength=10 type="name" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="forform">
+                            <div class="textinformleft">
+                                Password
+                            </div>
+                            <div class="textinformright">
+                                <input class="textinformright" maxlength=20 type="password" name="password">
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <div>
+                            <button class="forbutton" type="submit"> Submit </button>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+
+
+            </div>
+        </center>
+    </div>
+
+</div>
+
+{% endblock %}

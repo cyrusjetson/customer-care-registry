@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+
+
+    <link rel="stylesheet" href="static/css/main.css" />
+
+
+    <style>
+        body {
+            background-color: #fefefa;
+        }
+    </style>
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% block body %}
+    {% endblock %}
+    <script>
+        if (performance.navigation.type == performance.navigation.TYPE_RELOAD || performance.navigation.type == performance.navigation.TYPE_BACK_FORWARD) {
+            let s = "/login";
+            let r = "/";
+            let p = "/signup";
+            let q = "/forgot";
+            let a = window.location.pathname;
+            if (a.localeCompare(s) != 0 && a.localeCompare(p) != 0 && a.localeCompare(q) != 0) {
+                if (sessionStorage.getItem("login") == "False") {
+                    location.href = '/err';
+                }
+            }
+        }
+
+        window.watsonAssistantChatOptions = {
+            integrationID: "01bcedd3-8231-4916-b61a-f6ae967f249c", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "7f6e648a-e98d-4bcb-a5b0-4826be976f22", // The ID of your service instance.
+            onLoad: function (instance) { instance.render(); }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+        });
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

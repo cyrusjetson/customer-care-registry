@@ -1,0 +1,340 @@
+.sign {
+  border-radius: 1rem;
+  background-color: #fefefb;
+  border-color: black;
+  padding-left: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: center;
+  padding: 1%;
+}
+
+
+
+
+.fortitle {
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 5px;
+}
+
+.forp {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textinformleft {
+  text-align: left;
+  padding-left: 5%;
+  width: 50%;
+  border-radius: 1rem;
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.forfont {
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.formsg {
+  padding-left: 5%;
+  text-align: center;
+  border-radius: 1rem;
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.textinformright2 {
+  width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  border-radius: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textinformright {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-right: 10%;
+
+  border-radius: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+input {
+  border-radius: 1rem;
+  color: black;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding-left: 15px;
+}
+
+input:focus {
+  border-color: yellow;
+}
+
+.forform {
+  display: flex;
+  padding: 15px;
+  border-radius: 1rem;
+
+}
+
+.forpadding {
+  padding-top: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.forbutton {
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  padding: 7px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  box-shadow: white;
+  cursor: pointer;
+}
+
+
+/* for dashboard */
+
+.fordashboardtop {
+  border-radius: 1rem;
+  display: flex;
+  background-color: #fefefb;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.fordashboardtopelements1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 90%;
+  font-size: large;
+  padding: 2%;
+}
+
+.fordashboardtopelements2 {
+  width: 10%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.fordashboarddetails {
+  padding: 2%;
+  border-radius: 1rem;
+  background-color: #fefefb;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.outerofdashdetails {
+  /* padding-top: 2%; */
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.fortable {
+  width: 100%;
+  padding: 1%;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.fortable2 {
+  width: 20%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.fortable2left {
+  text-align: right;
+  padding: 7px;
+}
+
+.fortable2right {
+  text-align: left;
+  padding: 7px;
+}
+
+.pad {
+  padding: 7px;
+}
+
+.foraddbutton {
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  padding: 7px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.collapsible {
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  padding: 7px;
+  width: 30%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+}
+
+.collapsible:hover {
+  background-color: white;
+}
+
+.content {
+  display: none;
+  border-radius: 1rem;
+  background-color: #fefef9;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 60%;
+}
+
+.content2 {
+  padding: 3%;
+  display: none;
+  text-align: left;
+  border-radius: 1rem;
+  background-color: #fefefa;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  background-color: #fefefb;
+  border-radius: 5px;
+  width: 60%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: orange;
+}
+
+.popup .content {
+  max-height: 80%;
+  overflow: auto;
+}
+
+a:active{
+  color:#59a378;
+}
+
+a:visited{
+  
+  color:#59a378;
+}
+
+a:link{
+  
+  color:#59a378;
+}
+

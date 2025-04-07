@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+<title>
+    Dashboard
+</title>
+
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<br>
+
+
+<div class="fordashboardtop">
+    <div class="fordashboardtopelements1">
+        Welcome {{ name }},
+    </div>
+    <div class="fordashboardtopelements2">
+        <a href="/signout"><button class="forbutton">Sign out</button></a>
+    </div>
+
+</div>
+<br>
+<div class="outerofdashdetails">
+
+    <div class="fordashboarddetails">
+        <br>
+        <!-- table of customers complaints -->
+        <table class="fortable">
+            <thead>
+                <th>ID</th>
+                <th>Complaint</th>
+                <th>Assigned Agent</th>
+                <th>More Details</th>
+            </thead>
+            <tbody>
+                {% for i in complaints %}
+                <tr>
+                    <td>
+                        {{ i['C_ID'] }}
+                    </td>
+                    <td>
+                        {{ i['TITLE'] }}
+                    </td>
+                    <td>
+                        {{ i['ASSIGNED_AGENT'] }}
+                    </td>
+                    <td>
+
+                        <div id="popup2/{{ i['C_ID'] }}" class="overlay">
+                            <div class="popup">
+                                <div style="text-align: left;">
+                                    <h2>Complaint ID {{ i['C_ID'] }}</h2>
+                                    <b> Title:</b> {{ i['TITLE'] }} <br>
+                                     <b> Date of complaint:</b> {{ i['DATE_OF_COMPLAINT'] }} <br>
+                                   <b> Date assigned:</b> {{ i['DATE_ASSIGNED'] }} <br>
+                                   <b> Date completed: </b>{{ i['DATE_COMPLETED'] }} <br>
+                                    <b> Description:</b> {{ i['COMPLAINT'] }} <br>
+                                    <b> Solution:</b> {{ i['SOLUTION'] }} <br>
+                                    <b> Status:</b> {% if i['STATUS'] == 1 %}
+                                    Completed
+                                    {% elif i['STATUS'] == 0 %}
+                                    Not completed
+                                    {% else %}
+                                    In progress
+                                    {% endif %}<br>
+                                    <b> Screenshot: </b><br>
+                                    <center>
+                                        <div style="width: 60%;height: 60%;">
+                                            <img src="data:;base64,{{ i['NEWIMG'] }}" alt="No image provided"
+                                                width="100%" />
+                                        </div>
+                                    </center>
+                                </div>
+                                <a class="close" href="#">×</a>
+                                <div class="content">
+                                    Thank to pop me out of that button, but now i'm done so you can close this window.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <a class="button" href="#popup2/{{ i['C_ID'] }}">View</a>
+                        </div>
+
+
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <br>
+    <center>
+        <div class="formsg">
+            {% if msg|length > 3 %}
+            <b>{{ msg }}</b> <br><br>
+
+            {% endif %}
+        </div>
+        <div class="fordashboarddetails">
+
+            <button type="button" class="collapsible">Add new complaint ➕</button>
+            <div class="content">
+                <br>
+                <form action="/addnew" method="post" enctype="multipart/form-data">
+                    <div class="forform">
+                        <div class="textinformleft">
+                            Title
+                        </div>
+                        <div class="textinformright">
+                            <input class="textinformright" maxlength=30 type="text" name="title">
+                        </div>
+                    </div>
+
+                    <div class="forform">
+                        <div class="textinformleft">
+                            Complaint
+                        </div>
+                        <div class="textinformright">
+                            <textarea name="des" maxlength=60
+                                style="border-radius: 1rem;width: 90%;height: 150%;background-color: black;color: white;"></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="forform">
+                        <div class="textinformleft">
+                            Image <br> (optional) <br>
+                            Max size: 17MB
+                        </div>
+                        <div class="textinformright">
+
+                            <input class="textinformright" type="file" id="file" name="file" accept="image/*">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div>
+                        <button class="forbutton" type="submit"> Submit </button>
+                    </div>
+                </form>
+                <br>
+            </div>
+
+
+        </div>
+    </center>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+flask
+Flask
+ibm_db
+google-auth
+google-auth-oauthlib
+sendgrid
+oauthlib
+requests
+requests-oauthlib
+gunicorn

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>
+    Admin Dashboard
+</title>
+<script>
+    function setstatus(x) {
+        location.href = '/setstat/' + x
+    }
+
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+<br>
+
+<div class="fordashboardtop">
+    <div class="fordashboardtopelements1">
+        Welcome Admin,
+    </div>
+    <div class="fordashboardtopelements2">
+        <a href="/signout"><button class="forbutton">Sign out</button></a>
+    </div>
+
+</div>
+<br>
+<div class="outerofdashdetails">
+
+    <div class="fordashboarddetails">
+        <br>
+        <!-- table of customers complaints -->
+        <table class="fortable">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pad">
+                        <a href="/agents">Agent Details</a>
+                    </td>
+                    <td class="pad">
+                        <a href="/tickets">Customer Ticket Details</a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <br><br>
+        <center>
+            <div class="forfont">
+                There are {{ count }} unassigned complaints
+            </div>
+            <br><br>
+            <table class="fortable2">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fortable2left">
+                            Auto-assign agent:
+                        </td>
+                        <td class="fortable2right">
+                            <form name="setstat" id="setstat" action="/setstat" method="POST">
+                                {% if auto_assign == 1 %}
+                                <label class="switch">
+                                    <input type="checkbox" onclick="setstatus(0)" name="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                {% else %}
+                                <label class="switch">
+                                    <input type="checkbox" onclick="setstatus(1)" name="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </center>
+        <br>
+        <br>
+
+    </div>
+
+</div>
+
+{% endblock %}

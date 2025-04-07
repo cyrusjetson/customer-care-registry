@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+<title>
+    Forgot Password
+</title>
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="forpadding">
+
+    <!-- for box of the signup form -->
+    <div class="sign">
+        <div>
+            <p class="fortitle">
+                Reset Password
+            </p>
+            <hr>
+            <form action="/forgot" method="post">
+                <div class="forform">
+                    <div class="textinformleft">
+                        Enter your registered email address for verification
+                    </div>
+                    <div class="textinformright">
+                        <input class="textinformright" maxlength=40 type="name" name="email">
+                    </div>
+                </div>
+                <div>
+                    {% if msg|length > 3 %}
+                    <b>{{ msg }}</b> <br>
+                    {% endif %}
+                </div>
+                <br>
+                <div>
+                    <button class="forbutton" type="submit"> Verify >></button>
+                </div>
+            </form>
+            <br>
+
+            <br>
+            <div>
+                <a href="/login">Sign in</a>
+            </div>
+            <br>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

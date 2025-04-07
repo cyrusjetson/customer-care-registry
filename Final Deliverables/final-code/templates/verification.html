@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+<title>
+    Verification
+</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<div class="forpadding">
+
+    <!-- for box of the signup form -->
+    <div class="sign">
+        <div>
+            <p class="fortitle">
+                Verification
+            </p>
+            <hr>
+
+            {% if status == 1 %}
+            <form action="/verify" method="post">
+                <div class="forform">
+                    <div class="textinformleft">
+                        Enter email verification code for signup
+                    </div>
+                    <div class="textinformright">
+                        <input class="textinformright" maxlength=5 type="name" name="CODE">
+                    </div>
+                </div>
+                {% if msg|length > 3 %}
+                <b>{{ msg }}</b> <br>
+
+                {% endif %}
+                <br>
+                <div>
+                    <button class="forbutton" type="submit"> Verify >></button>
+                </div>
+            </form>
+            {% else %}
+            <form action="/resetverify" method="post">
+                <div class="forform">
+                    <div class="textinformleft">
+                        Enter email verification code for reset password
+                    </div>
+                    <div class="textinformright">
+                        <input class="textinformright" maxlength=5 type="name" name="CODE">
+                    </div>
+                </div>
+                <div class="forform">
+                    <div class="textinformleft">
+                        Enter new password
+                    </div>
+                    <div class="textinformright">
+                        <input class="textinformright" maxlength=20 type="password" name="password">
+                    </div>
+                </div>
+                <div class="forform">
+                    <div class="textinformleft">
+                        Re-enter password
+                    </div>
+                    <div class="textinformright">
+                        <input class="textinformright" maxlength=20 type="password" name="repass">
+                    </div>
+                </div>
+                {% if msg|length > 3 %}
+                <b>{{ msg }}</b> <br>
+
+                {% endif %}
+                <br>
+                <div>
+                    <button class="forbutton" type="submit"> Verify >></button>
+                </div>
+            </form>
+            {% endif %}
+
+            <br>
+
+
+            <div>
+                Already have an account? <a href="/login">Sign in</a>
+            </div>
+            <br>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

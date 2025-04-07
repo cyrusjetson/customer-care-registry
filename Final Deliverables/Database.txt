@@ -1,0 +1,11 @@
+
+// users table
+create table users(username varchar(30) not null,name varchar(30), email varchar(40) not null, phn varchar(15), password varchar(20), primary key(username) );
+
+// complaints table
+create table complaints(c_id integer not null GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1), username varchar(30) not null, title varchar(30), assigned_agent varchar(30),
+status int, complaint varchar(60), solution varchar(60),date_of_complaint varchar(15),date_assigned varchar(15), date_completed varchar(15), pic blob,primary key(c_id), foreign key(username) references users(username), foreign key(assigned_agent) references agents(username));
+
+
+// agents table
+create table agents(username varchar(30) not null,name varchar(30), email varchar(40),phn varchar(15), password varchar(20),domain varchar(30), status int,solved_count int,complaints_count int, primary key(username));
